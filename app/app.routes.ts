@@ -5,6 +5,7 @@ import {CustomPreloadingStrategy} from "./shared/preload/custom-preloading.strat
 import {AuthLoadGuard} from "./shared/auth/auth.load.guard";
 import {BookingsComponent} from "./bookings/bookings.component";
 import {AuthChildGuard} from "./shared/auth/auth.child.guard";
+import {FlightBookingComponent} from "./flight-booking/flight-booking.component";
 
 let APP_ROUTES: Routes = [
     {
@@ -20,8 +21,8 @@ let APP_ROUTES: Routes = [
         path: 'flight-booking',
         loadChildren: './flight-booking/flight-booking.module#FlightBookingModule',
         data: {
-            preload: false
-        }
+            preload: true
+        }       
     },
     {
         path: 'bookings',
@@ -77,7 +78,7 @@ export let AppRouterModule = RouterModule.forRoot(APP_ROUTES, {
 
 //
 //
-//          HIER KÖNNTE AUCH IHRE WERBUNG STEHEN
+//
 //
 //
 

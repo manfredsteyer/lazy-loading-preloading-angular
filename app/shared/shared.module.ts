@@ -17,8 +17,8 @@ import {AuthService} from "./auth/auth.service";
 
 @NgModule({
     imports: [
-        FormsModule, // [(ngModel)]
-        CommonModule // ngFor, ngIf, ngStyle, ngClass, date, json
+        FormsModule,
+        CommonModule
     ],
     declarations: [
         CityPipe,
@@ -26,6 +26,15 @@ import {AuthService} from "./auth/auth.service";
         AsyncCityValidatorDirective,
         RoundTrip,
         DateComponent
+    ],
+    providers:  [
+        OAuthService,
+
+        AuthGuard,
+        AuthLoadGuard,
+        AuthChildGuard,
+        LeaveComponentGuard,
+        CustomPreloadingStrategy
     ],
     exports:[
         CityPipe,
@@ -36,18 +45,4 @@ import {AuthService} from "./auth/auth.service";
     ]
 })
 export class SharedModule {
-    static forRoot(): ModuleWithProviders {
-        return {
-            providers:  [
-                OAuthService,
-                { provide: AuthService, useClass: SimpleAuthService },
-                AuthGuard,
-                AuthLoadGuard,
-                AuthChildGuard,
-                LeaveComponentGuard,
-                CustomPreloadingStrategy
-            ],
-            ngModule: SharedModule
-        }
-    }
 }

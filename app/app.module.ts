@@ -9,7 +9,8 @@ import {AppRouterModule} from "./app.routes";
 import {HomeComponent} from "./home/home.component";
 import {FlightHistoryComponent} from "./flight-history/flight-history.component";
 import {BookingsComponent} from "./bookings/bookings.component";
-import {ChatComponent} from "./flight-booking/chat/chat.component";
+import {FlightBookingModule} from "./flight-booking/flight-booking.module";
+import { CoreModule } from './core/core.module';
 
 @NgModule({
     imports: [
@@ -17,8 +18,10 @@ import {ChatComponent} from "./flight-booking/chat/chat.component";
         HttpModule,
         FormsModule,
         ReactiveFormsModule,
-        SharedModule.forRoot(),
-        AppRouterModule
+        SharedModule,
+        AppRouterModule,
+        CoreModule
+        //FlightBookingModule
     ],
     declarations: [
         AppComponent,
@@ -31,7 +34,6 @@ import {ChatComponent} from "./flight-booking/chat/chat.component";
     ],
     bootstrap: [
         AppComponent
-
     ]
 })
 export class AppModule {

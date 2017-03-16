@@ -14,7 +14,6 @@ const FLIGHT_BOOKING_ROUTES: Routes = [
     {
         path: '',
         component: FlightBookingComponent,
-        //canActivateChild: [AuthChildGuard],
         children: [
             {
                 path: '',
@@ -33,7 +32,6 @@ const FLIGHT_BOOKING_ROUTES: Routes = [
             {
                 path: 'flight-edit/:id',
                 component: FlightEditComponent,
-                //canActivate: [AuthGuard],
                 canDeactivate: [LeaveComponentGuard],
                 data: {
                     restricted: true // Custom Property

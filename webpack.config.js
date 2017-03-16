@@ -27,7 +27,13 @@ module.exports = {
         ]
     },
     plugins: [
-        new CommonsChunkPlugin({ name: 'vendor'})
+        new CommonsChunkPlugin({ name: 'vendor'}),
+        new webpack.ContextReplacementPlugin(
+            // The (\\|\/) piece accounts for path separators in *nix and Windows
+            /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+            __dirname, // location of your src
+            {} // a map of your routes
+        )
     ],
     node: {
         __filename: true
